@@ -37,4 +37,9 @@ cp ansible/inventory/* /home/
 
 #替换密码
 RUN kolla-genpwd &&\
-sed -i 's/keystone_admin_password.*/keystone_admin_password: thinkbig1/g' /etc/kolla/passwords.yml
+sed -i 's/keystone_admin_password.*/keystone_admin_password: abc123456/g' /etc/kolla/passwords.yml
+
+#执行部署命令(每次组件升级需要修改tag）
+RUN kolla-ansible deploy -i /home/multinode --tag="common"
+
+
