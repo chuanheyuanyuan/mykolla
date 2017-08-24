@@ -1,5 +1,6 @@
 #! /bin/bash
 
+#创建密钥
 expect -c "
 spawn ssh-keygen 
 expect { 
@@ -17,6 +18,8 @@ expect {
 	}
 }
 "
+
+#把密钥拷贝到远端机器，并访问
 for p in $(cat ip.txt)
 do  
 ip=$(echo "$p"|cut -f1 -d":")       #取ip.txt文件中的ip地址  
