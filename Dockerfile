@@ -19,7 +19,7 @@ MAINTAINER czwei2@iflytek.com
 
 #安装各种插件
 RUN yum install -y epel-release
-RUN yum install -y python-devel libffi-devel gcc openssl-devel git python-pip ntp
+RUN yum install -y python-devel libffi-devel gcc openssl-devel git python-pip ntp expect
 
 #安装ansible
 RUN (yum install -y ansible || yum install -y ansible)
@@ -38,6 +38,13 @@ cp ansible/inventory/* /home/
 #替换密码
 RUN kolla-genpwd &&\
 sed -i 's/keystone_admin_password.*/keystone_admin_password: abc123456/g' /etc/kolla/passwords.yml
+
+#拷贝配置文件
+
+
+#创建信任关系
+
+
 
 #执行部署命令(每次组件升级需要修改tag）
 RUN kolla-ansible deploy -i /home/multinode --tag="common"
