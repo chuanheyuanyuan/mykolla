@@ -47,7 +47,7 @@ expect {
 "
 done
 
-kolla-ansible deploy -i /home/multinode --tag="common"
+kolla-ansible deploy -i /home/multinode --tag="nova"
 		
 
 

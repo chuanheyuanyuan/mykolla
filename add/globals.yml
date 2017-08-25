@@ -15,10 +15,10 @@
 #kolla_base_distro: "centos"
 
 # Valid options are [ binary, source ]
-#kolla_install_type: "binary"
+kolla_install_type: "source"
 
 # Valid option is Docker repository tag
-#openstack_release: ""
+openstack_release: "4.0.3"
 
 # Location of configuration overrides
 #node_custom_config: "/etc/kolla/config"
