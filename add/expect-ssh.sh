@@ -28,7 +28,7 @@ password=$(echo "$p"|cut -f2 -d":") #取ip.txt文件中的密码
 expect -c "
 spawn ssh-copy-id -i /root/.ssh/id_rsa.pub root@$ip
 expect {
-	\"*yes*\" {
+	\"*Are you sure you want to continue connecting*\" {
 		send \"yes\r\"
 		exp_continue
 	}
