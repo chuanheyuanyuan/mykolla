@@ -32,4 +32,5 @@ RUN cd /home &&\
 git clone http://git.trystack.cn/openstack/kolla-ansible -b stable/ocata && \
 cd kolla-ansible && \
 pip install . && \
+cp -r etc/kolla /etc/kolla/ 
 

@@ -8,7 +8,7 @@
 #Version 1.0
 
 #基础镜像
-FROM envcont:latest
+FROM mykolla_base:latest
 
 #维护人
 MAINTAINER czwei2@iflytek.com
@@ -26,9 +26,7 @@ COPY ./add/globals.yml /etc/kolla/
 COPY ./add/multinode /home/
 
 #创建信任关系
-RUN sh /expect-ssh.sh
+CMD sh /expect-ssh.sh
 
-#执行部署命令(每次组件升级需要修改tag）
-RUN kolla-ansible deploy -i /home/multinode --tag="common"
 
 

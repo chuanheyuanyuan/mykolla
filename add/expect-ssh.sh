@@ -28,6 +28,11 @@ password=$(echo "$p"|cut -f2 -d":") #取ip.txt文件中的密码
 expect -c "
 spawn ssh-copy-id -i /root/.ssh/id_rsa.pub root@$ip
 expect {
+	\"*yes*\" {
+		send \"yes\r\"
+		exp_continue
+	}
+	
 	\"*password*\" {
 		send \"$password\r\"
 		exp_continue
@@ -42,7 +47,7 @@ expect {
 "
 done
 
-
+kolla-ansible deploy -i /home/multinode --tag="common"
 		
 
 
