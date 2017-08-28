@@ -1,7 +1,4 @@
-#172.20.1.91:thinkbig1
-#172.20.1.92:thinkbig1
-#172.20.1.93:thinkbig1
-#172.20.1.94:thinkbig1
+
 
 
 182.61.21.65:weichuanzi@123456

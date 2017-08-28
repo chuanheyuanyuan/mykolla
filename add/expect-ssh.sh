@@ -39,12 +39,7 @@ expect {
 	}
 }
 "
-expect -c "
-spawn ssh root@$ip
-expect {
-	send /"exit\r/"
-}
-"
+
 done
 
 kolla-ansible deploy -i /home/multinode --tag="nova"
