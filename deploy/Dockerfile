@@ -8,7 +8,7 @@
 #Version 1.0
 
 #基础镜像
-FROM mykolla_base:latest
+FROM czwei2/mykolla_base:latest
 
 #维护人
 MAINTAINER czwei2@iflytek.com
@@ -19,14 +19,14 @@ MAINTAINER czwei2@iflytek.com
 RUN kolla-genpwd &&\
 sed -i 's/keystone_admin_password.*/keystone_admin_password: abc123456/g' /etc/kolla/passwords.yml
 
-#拷贝配置文件(在执行build之前，要先改好配置文件）
-COPY ./add/expect-ssh.sh /
-COPY ./add/ip.txt /
-COPY ./add/globals.yml /etc/kolla/
-COPY ./add/multinode /home/
+#拷贝配置文件
+COPY ./../add/kolla-deploy.sh /
+COPY ./../add/ssh.conf /
+COPY ./../add/globals.yml /etc/kolla/
+COPY ./../add/multinode /home/
 
-#创建信任关系
-CMD sh /expect-ssh.sh
+#执行启动脚本
+CMD sh /kolla-deploy.sh
 
 
 
