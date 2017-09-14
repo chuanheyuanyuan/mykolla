@@ -20,10 +20,10 @@ expect {
 "
 
 #把密钥拷贝到远端机器，并访问
-for p in $(cat /ip.txt)
+for p in $(cat /ssh.conf)
 do  
-ip=$(echo "$p"|cut -f1 -d":")       #取ip.txt文件中的ip地址  
-password=$(echo "$p"|cut -f2 -d":") #取ip.txt文件中的密码
+ip=$(echo "$p"|cut -f1 -d":")       #取ssh.conf文件中的主机名  
+password=$(echo "$p"|cut -f2 -d":") #取ssh.conf文件中的密码
 
 expect -c "
 spawn ssh-copy-id -i /root/.ssh/id_rsa.pub root@$ip

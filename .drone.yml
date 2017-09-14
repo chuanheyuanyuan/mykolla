@@ -1,0 +1,11 @@
+pipeline:
+    publish:
+          image: plugins/docker
+          username: admin
+          password: Harbor12345
+          registry: 10.1.86.51
+          email: fhtjob@hotmail.com
+          repo: 10.1.86.51/devops/kolla-ansible
+          tag: alpha-v2.0.3
+          file: Dockerfile
+          insecure: true
