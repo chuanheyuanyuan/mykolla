@@ -1,0 +1,4 @@
+docker run add-host=test01openstack:172.21.195.11 --add-host=test02openstack:172.21.195.12 --add-host=test03openstack:172.21.195.13  --add-host=test04openstack:172.21.195.14 --add-host=test05openstack:172.21.195.15 --add-host=test06openstack:172.21.195.16 05039bdb18ca
+
+
+

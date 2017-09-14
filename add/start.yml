@@ -1,0 +1,5 @@
+---
+- hosts: monitoring 
+  tasks:
+   - name: start.sh
+     script: /start.sh > /start.log	

@@ -8,7 +8,7 @@
 #Version 1.0
 
 #基础镜像
-FROM mykolla_base:latest
+FROM czwei2/mykolla_base:1.0
 
 #维护人
 MAINTAINER czwei2@iflytek.com
@@ -24,6 +24,7 @@ COPY ./add/expect-ssh.sh /
 COPY ./add/ip.txt /
 COPY ./add/globals.yml /etc/kolla/
 COPY ./add/multinode /home/
+COPY ./add/ceph.conf /etc/kolla/config/
 
 #创建信任关系
 CMD sh /expect-ssh.sh

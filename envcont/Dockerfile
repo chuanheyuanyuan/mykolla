@@ -18,11 +18,11 @@ MAINTAINER czwei2@iflytek.com
 
 
 #安装各种插件
-RUN yum install -y epel-release
-RUN yum install -y python-devel libffi-devel gcc openssl-devel git python-pip ntp expect
-
-#安装ansible
-RUN (yum install -y ansible || yum install -y ansible)
+COPY *.repo /etc/yum.repo/
+RUN yum makecache && \
+yum -y install epel-release && \
+yum install -y python-devel libffi-devel gcc openssl-devel git python-pip ntp expect && \
+(yum install -y ansible || yum install -y ansible)
 
 #升级pip
 RUN pip install --upgrade pip

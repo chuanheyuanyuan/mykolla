@@ -42,18 +42,16 @@ expect {
 
 done
 
-kolla-ansible deploy -i /home/multinode --tag="nova"
-		
+for p in $(cat /ip.txt)
+do 
+ip=$(echo "$p"|cut -f2 -d":")
+scp docker-engine-1.12.5-1.el7.centos.x86_64.rpm docker-engine-selinux-1.12.5-1.el7.centos.noarch.rpm $ip:/
+done
 
+ansible-playbook -i /home/multinode start.yml
 
-
-
-
-
-
-
-
-
-
-
-
+#kolla-ansible destroy  -i /home/multinode --yes-i-really-really-mean-it --tags="ceph"
+kolla-ansible deploy -i /home/multinode --tags="ceph"
+#kolla-ansible bootstrap-osd -i /home/multinode --tags="ceph"
+#kolla-ansible  prechecks -i /home/multinode --tags="ceph"
+#kolla-ansible reconfigure -i /home/multinode  --tags="ceph"

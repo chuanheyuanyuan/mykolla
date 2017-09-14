@@ -2,28 +2,33 @@
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-baiduyun
-
+node07
 # The above can also be specified as follows:
 #control[01:03]     ansible_user=kolla
 
 # The network nodes are where your l3-agent and loadbalancers will run
 # This can be the same as a host in the control group
 [network]
-baiduyun
+node07
 
 [compute]
-baiduyun
+node01
+node02
 
 [monitoring]
-#monitoring01
+node03
+node04
+node05
+
 
 # When compute nodes and control nodes use different interfaces,
 # you can specify "api_interface" and other interfaces like below:
 #compute01 neutron_external_interface=eth0 api_interface=em1 storage_interface=em1 tunnel_interface=em1
 
 [storage]
-baiduyun
+node03
+node04
+node05
 
 [deployment]
 localhost       ansible_connection=local
@@ -38,7 +43,7 @@ monitoring
 # You can explicitly specify which hosts run each project by updating the
 # groups in the sections below. Common services are grouped together.
 [chrony-server:children]
-haproxy
+network
 
 [chrony:children]
 control
@@ -77,7 +82,7 @@ storage
 control
 
 [haproxy:children]
-network
+#network
 
 [hyperv]
 #hyperv_host
@@ -158,7 +163,7 @@ control
 control
 
 [ceph:children]
-control
+storage
 
 [magnum:children]
 control
@@ -293,7 +298,7 @@ neutron
 
 # Ceph
 [ceph-mon:children]
-ceph
+monitoring
 
 [ceph-rgw:children]
 ceph

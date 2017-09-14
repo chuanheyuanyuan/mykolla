@@ -1,7 +1,3 @@
-
-
-
-baiduyun:weichuanzi@123456
-
-
-
+node03:yq1000lmgs1cl!@#
+node04:yq1000lmgs1cl!@#
+node05:yq1000lmgs1cl!@#
